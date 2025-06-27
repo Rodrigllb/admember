@@ -13,13 +13,14 @@
             <input type="text" name="data" id="aniversario-member" placeholder="Digite a data de aniversário" required>
             <select name="lista-cargo" id="cargo-atual">
               <option value="Selecione o cargo atual">Selecione o cargo atual</option>
+              <option value="Ovelha">Ovelha</option>
               <option value="Pastor">Pastor</option>
               <option value="Diácono">Diácono</option>
               <option value="Presbítero">Presbítero</option>
               <option value="Auxiliar">Auxiliar</option>
-              <option value="Porteiro">Porteiro</option>
-              <option value="Evangelista">Evangelista</option>
-              <option value="Ovelha">Ovelha</option>
+              <option value="Tia da salinha">Tia da salinha</option>
+              <option value="Regente do circulo de oração">Regente do circulo de oração</option>
+              <option value="Regente de Senhoras">Regente de senhoras</option>
               <option value="Regente de Jovens">Regente de jovens</option>
               <option value="Regente de Crianças">Regente de crianças</option>
             </select>
@@ -28,7 +29,7 @@
           </form>
         </section>
         <section class="rodape-formulario">
-          <small>Developed by Rodrigo Liberato V1.0</small>
+          <small>Developed by Rodrigo Liberato V1.1</small>
           
         </section>
       </main>
