@@ -8,7 +8,14 @@
           <small>Plataforma destinada ao cadastro e à gestão interna dos membros da Igreja Assembleia de Deus – Templo Central do Gravier.</small>
         </section>
         <section class="formulario-preenchimento">
-          <form id="formulario">
+          
+          <form id="formulario"> 
+
+            <div class="miniDash">
+            <h3>Total de Membros:</h3>
+            <input type="text" id="dashboard-mini" readonly>
+            </div>
+
             <input type="text" placeholder="Digite o nome completo" id="nome-member" required>
             <input type="text" name="data" id="aniversario-member" placeholder="Digite a data de aniversário" required>
             <select name="lista-cargo" id="cargo-atual">
@@ -19,6 +26,7 @@
               <option value="Presbítero">Presbítero</option>
               <option value="Auxiliar">Auxiliar</option>
               <option value="Tia da salinha">Tia da salinha</option>
+              <option value="Criança">Criança</option>
               <option value="Regente do circulo de oração">Regente do circulo de oração</option>
               <option value="Regente de Senhoras">Regente de senhoras</option>
               <option value="Regente de Jovens">Regente de jovens</option>
@@ -29,7 +37,7 @@
           </form>
         </section>
         <section class="rodape-formulario">
-          <small>Developed by Rodrigo Liberato V1.1</small>
+          <small>Developed by Rodrigo Liberato V1.2</small>
           
         </section>
       </main>
@@ -54,9 +62,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const nome = document.getElementById('nome-member').value;
     const aniversario = document.getElementById('aniversario-member').value;
     const cargo = document.getElementById('cargo-atual').value;
-    
+
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbw-uD0HFhqRnKcXj-4wBvuFyyDgLulJINO6Nh-wuczQGqrwpkahFxcvd930azENmmU/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbygBdycBdhI4oCBKfsXrTxwgxIEfglWKbmr1LqcdiP3bAVuDnp2nCImeTUOUG6WGeE/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -80,9 +88,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
       alert('Ocorreu um erro, favor contatar ao desenvolvedor.')
     }
 
- 
+
+    
+    
   
   });
+
+  async function buscardados() {
+    try { //Tentativa de buscar dados da celula da planilha.
+      const response = await fetch("https://script.google.com/macros/s/AKfycbygBdycBdhI4oCBKfsXrTxwgxIEfglWKbmr1LqcdiP3bAVuDnp2nCImeTUOUG6WGeE/exec");
+      const data = await response.json();
+      document.getElementById('dashboard-mini').value = data.valor;
+    }
+    catch (erro){
+      console.error("Erro ao buscar dados..");
+    }
+  }
+
+  buscardados();
+  setInterval(buscardados, 100);
 
 });
 </script>
@@ -94,6 +118,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   margin: 0;
   padding: 0;
 }
+
 
 #main-container { /*Container principal*/
   display: flex;
@@ -108,11 +133,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
+  width: 350px;
   height: auto;
   padding: 12px;
   margin: 0 auto;
   border-radius: 25px;
+
 }
 
 main { /*Elemento semântico da página*/
@@ -155,7 +181,6 @@ main { /*Elemento semântico da página*/
   height: auto;
 }
 .formulario-preenchimento input { /*Estilização das entradas de dados*/
-  
   border: 1px solid #000;
   padding: 13px;
   margin: 15px 0px 15px 0px;
@@ -168,8 +193,8 @@ main { /*Elemento semântico da página*/
   padding: 13px;
   margin: 15px 0px 15px 0px;
   border: none;
-  border-radius: 25px;
-  background-color: #eeeeee;
+  border-radius: 10px;
+  background-color: #eee;
 }
 .formulario-preenchimento small {
   font-size: 9pt;
@@ -180,6 +205,26 @@ main { /*Elemento semântico da página*/
   color: #fff;;
 }
 
+.miniDash { /*Estilização do mini dashboard da quantidade de membros*/
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 62px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+#dashboard-mini { /*Saída de dados da quantidade de membros cadastrados*/
+  display: flex;
+  width: 63px;
+  font-size: 19pt;
+  text-align: center;
+  font-weight: 800;
+  border-radius: 50%;
+  color: #4a90e2;
+  background-color: transparent;
+}
 
 .rodape-formulario {
    font-size: 9pt;
