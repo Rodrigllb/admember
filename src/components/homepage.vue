@@ -5,14 +5,14 @@
       <main>
         <section class="marca-afins">
           <img src="../assets/logo/logo-admembers.png" alt="logo admembers">
-          <small>Plataforma destinada ao cadastro e à gestão interna dos membros da Igreja Assembleia de Deus – Templo Central do Gravier.</small>
+          <small>Formulário destinado ao cadastro e à gestão interna dos membros da Igreja Assembleia de Deus – Templo Central do Gravier.</small>
         </section>
         <section class="formulario-preenchimento">
           
           <form id="formulario"> 
 
             <div class="miniDash">
-            <h3>Total de Membros:</h3>
+            <h3>MEMBROS</h3>
             <input type="text" id="dashboard-mini" readonly>
             </div>
 
@@ -26,7 +26,8 @@
               <option value="Presbítero">Presbítero</option>
               <option value="Auxiliar">Auxiliar</option>
               <option value="Tia da salinha">Tia da salinha</option>
-              <option value="Criança">Criança</option>
+              <option value="Presidente dos jovens">Presidente dos Jovens</option>
+              <option value="Vice presidente dos jovens">Vice presidente dos Jovens</option>
               <option value="Regente do circulo de oração">Regente do circulo de oração</option>
               <option value="Regente de Senhoras">Regente de senhoras</option>
               <option value="Regente de Jovens">Regente de jovens</option>
@@ -213,15 +214,17 @@ main { /*Elemento semântico da página*/
   align-items: center;
   justify-content: center;
   border-radius: 15px;
+  border: 1px solid #4a90e2;
 }
 
 #dashboard-mini { /*Saída de dados da quantidade de membros cadastrados*/
   display: flex;
-  width: 63px;
-  font-size: 19pt;
+  width: 53px;
+  font-size: 15pt;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 50%;
+  outline: none;
   color: #4a90e2;
   background-color: transparent;
 }
